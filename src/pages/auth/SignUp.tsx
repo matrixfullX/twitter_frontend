@@ -64,7 +64,7 @@ const SignUp: React.FC<propsTypes> = ({ signupAction }) => {
       } else {
         setDisplayError(false);
         setDetailError("");
-        navigate(authRoutes.signupConfirm.path, { state: email });
+        navigate(authRoutes.login.path, { state: { signupSuccess: true } });
       }
     } else {
       ErrorMessage.DispyalErrorMessageFrontend(

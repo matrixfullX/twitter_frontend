@@ -1,6 +1,6 @@
 # Twitter — Front-end
 
-Aplicação React/TypeScript para a rede social Twitter, que contém o guia principal com a configuração dos dois projetos, ativação de conta pelos logs, endpoints e limitações de hospedagem gratuita.
+Aplicação React/TypeScript para a rede social Twitter. O cadastro segue direto para login e não depende de confirmação por e-mail.
 
 ## Requisitos
 
@@ -24,7 +24,7 @@ docker compose exec redis redis-cli ping
 Invoke-RestMethod http://localhost:8000/health/
 ```
 
-O Redis deve responder `PONG` e a API `status : ok`. O `.env.example` configura a ativação de conta para aparecer nos logs da API, sem SMTP.
+O Redis deve responder `PONG` e a API `status : ok`. Cadastro e login não exigem configuração de serviço de e-mail.
 
 ## 3. Instalar e executar o React
 
@@ -55,14 +55,13 @@ npm.cmd start
 
 Acesse [http://localhost:3000](http://localhost:3000). Deixe o terminal aberto. Para desligar somente o React, pressione `Ctrl+C` nesse terminal; os containers do backend continuam rodando.
 
-## 4. Criar e ativar uma conta
+## 4. Criar uma conta e entrar
 
-1. Cadastre-se pela interface com e-mail e senha válidos.
-2. Na janela do backend, rode `docker compose logs --since 10m api`.
-3. Copie dos logs o link que começa por `http://localhost:3000/auth/user/account/activation/` e abra-o no navegador. A mensagem de ativação é impressa no console do backend; não chega ao e-mail.
-4. Quando a página confirmar a ativação, entre com a conta criada.
+1. Cadastre-se pela interface com nome, e-mail e senha válidos.
+2. Após o cadastro, a aplicação abre a tela de login e confirma que a conta foi criada.
+3. Entre com o e-mail e a senha usados no cadastro. Não é preciso abrir caixa de entrada nem ativar a conta.
 
-O token no link é temporário e não deve ser compartilhado. Se não localizar a mensagem, confira se o `.env` do backend contém `EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend`, recrie a API com `docker compose up -d --build api` e tente novamente. Os passos detalhados e o comando para reenviar a ativação estão no README do backend.
+O cadastro não envia e-mails nem depende de SMTP, Brevo ou qualquer outro serviço externo.
 
 ## 5. Login Google opcional
 
@@ -85,7 +84,7 @@ O build pode exibir avisos de dependências antigas/ESLint do Create React App; 
 
 ## Hospedagem gratuita
 
-O front-end pode ser publicado como site estático gratuito. O backend tem um Blueprint Render com recursos Free, mas esse nível pode dormir, reiniciar e apagar dados do Redis; o Postgres gratuito expira após 30 dias. Arquivos enviados também não são persistentes sem um serviço de mídia externo. Revise limites e cobrança antes de confirmar criação e não faça upgrade pago se não quiser custos. No ambiente de console, ativação aparece nos logs e não é enviada por e-mail. Veja a seção de hospedagem gratuita no README do backend e os [limites oficiais do Render Free](https://render.com/docs/free).
+O front-end pode ser publicado como site estático gratuito. O backend tem um Blueprint Render com recursos Free, mas esse nível pode dormir, reiniciar e apagar dados do Redis; o Postgres gratuito expira após 30 dias. Arquivos enviados também não são persistentes sem um serviço de mídia externo. Revise limites e cobrança antes de confirmar criação e não faça upgrade pago se não quiser custos. Cadastro e login não dependem de e-mail. Veja a seção de hospedagem gratuita no README do backend e os [limites oficiais do Render Free](https://render.com/docs/free).
 
 ## Licença
 

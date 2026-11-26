@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
 import ModalAuth from "@/components/auth/ModalAuth";
@@ -14,6 +14,10 @@ import { GoogleLoginButton } from "@/components/auth/GoogleLoginButton";
 type propsTypes = { loginAction: (isAuthenticated?: boolean) => Promise<void> };
 
 const Login: React.FC<propsTypes> = ({ loginAction }) => {
+  const location = useLocation();
+  const signupSuccess = Boolean(
+    (location.state as { signupSuccess?: boolean } | null)?.signupSuccess
+  );
   const [formData, setFormData] = React.useState<IAuthLogin>({
     email: process.env.REACT_APP_Email || "",
     password: process.env.REACT_APP_Password || "",
@@ -52,6 +56,11 @@ const Login: React.FC<propsTypes> = ({ loginAction }) => {
         <span>or</span>
       </div>
       <form onSubmit={onSubmit}>
+        {signupSuccess && (
+          <div className="success-auth" role="status">
+            Account created successfully. Sign in with your email and password.
+          </div>
+        )}
         {displayError && (
           <div className="error-auth">
             <img src="/static/svg/error.svg" alt="icon error" />
@@ -77,9 +86,6 @@ const Login: React.FC<propsTypes> = ({ loginAction }) => {
         />
         <ButtonCustom nameClass={"btn-signup"} text={"Sign in"} isDisabled={disabled} />
         <div className="info">
-          <h4>
-            Forgot your password?<Link to={disabled ? "" : authRoutes.requestResetPassword.path}> Click here</Link>
-          </h4>
           <h4>
             Don't have an account?
             <Link to={disabled ? "" : authRoutes.signup.path}> Sign up</Link>

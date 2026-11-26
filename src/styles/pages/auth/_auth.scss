@@ -152,6 +152,16 @@
           @include flex(row, center, center);
           gap: 0.8rem;
         }
+
+        .success-auth {
+          width: 100%;
+          max-width: 460px;
+          padding: 0.65rem 1rem;
+          border: 1px solid #2eaa72;
+          border-radius: 8px;
+          color: #54d69b;
+          text-align: center;
+        }
       }
 
       .info-auth {

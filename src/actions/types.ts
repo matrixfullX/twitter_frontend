@@ -4,9 +4,6 @@
 export const SIGNUP_SUCCESS: string = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL: string = "SIGNUP_FAIL";
 
-export const ACCOUNT_ACTIVATION_SUCCESS: string = "ACCOUNT_ACTIVATION_SUCCESS";
-export const ACCOUNT_ACTIVATION_FAIL: string = "ACCOUNT_ACTIVATION_FAIL";
-
 export const LOGIN_SUCCESS: string = "LOGIN_SUCCESS";
 export const LOGIN_FAIL: string = "LOGIN_FAIL";
 
@@ -18,12 +15,6 @@ export const REFRESH_TOKEN_FAIL: string = "REFRESH_TOKEN_FAIL";
 
 export const AUTHENTICATED_SUCCESS: string = "AUTHENTICATED_SUCCESS";
 export const AUTHENTICATED_FAIL: string = "AUTHENTICATED_FAIL";
-
-export const REQUEST_RESET_PASSWORD_SUCCESS: string = "REQUEST_RESET_PASSWORD_SUCCESS";
-export const REQUEST_RESET_PASSWORD_FAIL: string = "REQUEST_RESET_PASSWORD_FAIL";
-
-export const RESET_PASSWORD_SUCCESS: string = "RESET_PASSWORD_SUCCESS";
-export const RESET_PASSWORD_FAIL: string = "RESET_PASSWORD_FAIL";
 
 export const LOGOUT: string = "LOGOUT";
 

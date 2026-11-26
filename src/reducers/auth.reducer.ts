@@ -63,12 +63,6 @@ const authReducer = (state: IAuthReducer = initialState, action: IActionReducer)
     case Types.VERIFY_TOKEN_FAIL:
     case Types.REFRESH_TOKEN_SUCCESS:
     case Types.REFRESH_TOKEN_FAIL:
-    case Types.ACCOUNT_ACTIVATION_SUCCESS:
-    case Types.ACCOUNT_ACTIVATION_FAIL:
-    case Types.REQUEST_RESET_PASSWORD_SUCCESS:
-    case Types.REQUEST_RESET_PASSWORD_FAIL:
-    case Types.RESET_PASSWORD_SUCCESS:
-    case Types.RESET_PASSWORD_FAIL:
       return {
         ...state,
       };
