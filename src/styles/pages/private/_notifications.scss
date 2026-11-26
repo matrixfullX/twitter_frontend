@@ -1,0 +1,23 @@
+.Notifications {
+  .all-notif {
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+
+    
+  }
+
+  .montions {
+    width: 100%;
+    padding: 2rem;
+    @include flex(column, center, center);
+    gap: 1rem;
+
+    h3 {
+      font-size: 26px;
+      font-weight: 700;
+    }
+    p {
+      color: $color5;
+    }
+  }
+}
